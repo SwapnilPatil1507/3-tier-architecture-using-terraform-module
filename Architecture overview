@@ -1,0 +1,39 @@
+AWS 3-Tier Architecture with Terraform 🚀
+This repository contains Terraform code for deploying a highly available and scalable 3-tier architecture on AWS.
+The infrastructure is designed to separate presentation (Web), application (App), and database (DB) layers, ensuring better performance, security, and scalability.
+
+📌 Architecture Overview:
+✔️ VPC with Public & Private Subnets
+✔️ Web Tier – EC2 Instances with a Security Group allowing HTTP/HTTPS access
+✔️ App Tier – EC2 Instances in a private subnet with controlled access
+✔️ DB Tier – RDS (MySQL) in a private subnet with restricted access
+✔️ Security – Security Groups, and Route Tables for controlled traffic
+✔️ Provisioning – Automated deployment using Terraform
+
+📁 Project Structure:
+pgsql
+Copy
+Edit
+/aws-3-tier-terraform  
+  ├── vpcmodule/          # VPC, Subnets, IGW, Route Tables  
+    ├── Main.tf
+    ├── Output.tf
+  ├── webmodule/          # Web EC2 Instances, Security Groups
+    ├── Main.tf
+    ├── Variables.tf
+  ├── appmodule/          # App EC2 Instances, Security Groups
+    ├── Main.tf
+    ├── Variables.tf
+  ├── dbmodule/           # RDS Instance, DB Subnet Groups
+    ├── Main.tf
+    ├── Variables.tf
+  ├── main.tf             # Root Terraform configuration  
+  ├── variables.tf        # Input variables for customization  
+  ├── terraform.tfvars    # Variable values (DO NOT commit with secrets!)  
+  
+  
+
+🔧 Prerequisites:
+Terraform v1.1+
+AWS CLI configured with appropriate credentials
+SSH key pair for EC2 instance access
